@@ -1,0 +1,34 @@
+otros elementos necesarios:
+
++programador attinyISP o cualquier arduino con el sketch arduinoISP+ condensador electrolítico de 10uF entre GND y RST
++socket DIP8 para no soldar los attiny directamente a la placa
++El valor de las resistencias puede variar en funcion del color y el tipo de led utilizado
+
+----------------------------
+coste: 
+
++Attiny: 1€
++pcb haciendo 160uds: 0.2€ 
++soporte pila: 0.05€
++4resistencias, 4leds, 1condensador, cable wrapping +/-0.5€
++pila: 0.2€
+
+total: 2€/u
+
+-----------------------------
+Programa:
+1 in: LDR.value
+4 out: LED0, LED1, LED2, LED3
+
+main:
+Si no hay luz: encender led aleatorio durante tiempo aleatorio 
+*podría molar que sólo se encendiera 2 o 3 horas, para que dure más la pila y no esté puesto de madrugada.
+Si hay luz: dormir 12h
+
+rutinas a crear:
+	 BRIGHT(led X, tiempo Y)
+	 RANDOM_LED();
+	 RANDOM_TIME();
+	 SLEEP();	
+
+*opcional: sobrecargar la rutina BRIGHT para que aleatoriamente pueda encender dos, tres o los cuatro leds durante un tiempo aleatorio cada uno.
